@@ -120,19 +120,21 @@ export function StatsCard({ expenses }: StatsCardProps) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {/* Total Expenses */}
-      <div className="stats-card bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 text-center">
+      <div className="stats-card card-stats-blue bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 text-center p-8">
         <div className="flex flex-col items-center justify-center">
-          <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
-            <span className="text-white text-2xl font-bold">₹</span>
+          <div className="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+            <span className="text-white text-3xl font-bold">₹</span>
           </div>
           <div className="text-center">
-            <p className="text-sm font-medium text-blue-700">Total Expenses</p>
-            <p className="text-2xl font-bold text-blue-900">
+            <p className="text-lg font-semibold text-blue-700 mb-2">
+              Total Expenses
+            </p>
+            <p className="text-3xl font-bold text-blue-900 mb-2">
               {formatCurrency(stats.total)}
             </p>
-            <p className="text-xs text-blue-600 mt-1">
+            <p className="text-sm text-blue-600 font-medium">
               {stats.count} transactions
             </p>
           </div>
@@ -140,29 +142,35 @@ export function StatsCard({ expenses }: StatsCardProps) {
       </div>
 
       {/* This Month */}
-      <div className="stats-card bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 text-center">
+      <div className="stats-card card-stats-green bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 text-center p-8">
         <div className="flex flex-col items-center justify-center">
-          <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4">
-            <span className="text-white text-2xl font-bold">📅</span>
+          <div className="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+            <span className="text-white text-3xl font-bold">📅</span>
           </div>
           <div className="text-center">
-            <p className="text-sm font-medium text-green-700">This Month</p>
-            <p className="text-2xl font-bold text-green-900">
+            <p className="text-lg font-semibold text-green-700 mb-2">
+              This Month
+            </p>
+            <p className="text-3xl font-bold text-green-900 mb-2">
               {formatCurrency(stats.thisMonth)}
             </p>
             {stats.lastMonth > 0 && (
-              <div className="flex items-center justify-center mt-1">
+              <div className="flex items-center justify-center mt-2">
                 <div
-                  className={`flex items-center text-xs ${
+                  className={`flex items-center text-sm font-medium ${
                     monthChange.isPositive ? "text-red-600" : "text-green-600"
                   }`}
                 >
-                  <span className={`mr-1 ${monthChange.isPositive ? "" : ""}`}>
+                  <span
+                    className={`mr-2 text-lg ${
+                      monthChange.isPositive ? "" : ""
+                    }`}
+                  >
                     {monthChange.isPositive ? "📈" : "📉"}
                   </span>
                   {monthChange.percent.toFixed(1)}%
                 </div>
-                <span className="text-xs text-gray-500 ml-1">
+                <span className="text-sm text-gray-500 ml-2 font-medium">
                   vs last month
                 </span>
               </div>
@@ -172,37 +180,41 @@ export function StatsCard({ expenses }: StatsCardProps) {
       </div>
 
       {/* Average Expense */}
-      <div className="stats-card bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 text-center">
+      <div className="stats-card card-stats-purple bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 text-center p-8">
         <div className="flex flex-col items-center justify-center">
-          <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
-            <span className="text-white text-2xl font-bold">📊</span>
+          <div className="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+            <span className="text-white text-3xl font-bold">📊</span>
           </div>
           <div className="text-center">
-            <p className="text-sm font-medium text-purple-700">
+            <p className="text-lg font-semibold text-purple-700 mb-2">
               Average Expense
             </p>
-            <p className="text-2xl font-bold text-purple-900">
+            <p className="text-3xl font-bold text-purple-900 mb-2">
               {formatCurrency(stats.average)}
             </p>
-            <p className="text-xs text-purple-600 mt-1">per transaction</p>
+            <p className="text-sm text-purple-600 font-medium">
+              per transaction
+            </p>
           </div>
         </div>
       </div>
 
       {/* Top Category */}
-      <div className="stats-card bg-gradient-to-br from-amber-50 to-orange-100 border-amber-200 text-center">
+      <div className="stats-card card-stats-orange bg-gradient-to-br from-amber-50 to-orange-100 border-amber-200 text-center p-8">
         <div className="flex flex-col items-center justify-center">
-          <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center mb-4">
-            <span className="text-sm">
+          <div className="w-16 h-16 bg-amber-500 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+            <span className="text-3xl">
               {categoryEmojis[stats.topCategory] || "📊"}
             </span>
           </div>
           <div className="text-center">
-            <p className="text-sm font-medium text-amber-700">Top Category</p>
-            <p className="text-lg font-bold text-amber-900">
+            <p className="text-lg font-semibold text-amber-700 mb-2">
+              Top Category
+            </p>
+            <p className="text-2xl font-bold text-amber-900 mb-2">
               {stats.topCategory}
             </p>
-            <p className="text-xs text-amber-600 mt-1">
+            <p className="text-sm text-amber-600 font-medium">
               {formatCurrency(stats.topCategoryAmount)}
             </p>
           </div>

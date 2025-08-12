@@ -104,8 +104,11 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
         </div>
       )}
 
-      <div>
-        <label htmlFor="date" className="form-label">
+      <div className="text-center mb-6">
+        <label
+          htmlFor="date"
+          className="form-label text-lg font-semibold text-gray-800"
+        >
           Date
         </label>
         <input
@@ -113,14 +116,17 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
           id="date"
           value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-          className="input-field"
+          className="input-field text-center mt-2"
           required
           disabled={isSubmitting}
         />
       </div>
 
-      <div>
-        <label htmlFor="description" className="form-label">
+      <div className="text-center mb-6">
+        <label
+          htmlFor="description"
+          className="form-label text-lg font-semibold text-gray-800"
+        >
           Description
         </label>
         <input
@@ -130,29 +136,32 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
           onChange={(e) =>
             setFormData({ ...formData, description: e.target.value })
           }
-          className="input-field"
+          className="input-field text-center mt-2"
           placeholder="Enter expense description..."
           required
           disabled={isSubmitting}
           maxLength={100}
         />
-        <div className="flex justify-between mt-1">
+        <div className="flex justify-center mt-2 space-x-4">
           <p className="text-xs text-gray-500">
             {formData.description.length}/100 characters
           </p>
           {formData.description.length > 80 && (
-            <p className="text-xs text-amber-600">
+            <p className="text-xs text-amber-600 font-medium">
               {100 - formData.description.length} remaining
             </p>
           )}
         </div>
       </div>
 
-      <div>
-        <label htmlFor="amount" className="form-label">
+      <div className="text-center mb-6">
+        <label
+          htmlFor="amount"
+          className="form-label text-lg font-semibold text-gray-800"
+        >
           Amount (₹)
         </label>
-        <div className="relative">
+        <div className="relative mt-2">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
             <span className="text-gray-500 text-lg font-semibold">₹</span>
           </div>
@@ -163,7 +172,7 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
             onChange={(e) =>
               setFormData({ ...formData, amount: e.target.value })
             }
-            className="input-field pl-10"
+            className="input-field pl-10 text-center"
             step="0.01"
             min="0.01"
             placeholder="0.00"
@@ -172,14 +181,17 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
           />
         </div>
         {formData.amount && parseFloat(formData.amount) > 0 && (
-          <p className="text-xs text-blue-600 mt-1">
+          <p className="text-sm text-blue-600 mt-2 font-medium">
             Amount: ₹{parseFloat(formData.amount).toFixed(2)}
           </p>
         )}
       </div>
 
-      <div>
-        <label htmlFor="category" className="form-label">
+      <div className="text-center mb-6">
+        <label
+          htmlFor="category"
+          className="form-label text-lg font-semibold text-gray-800"
+        >
           Category
         </label>
         <select
@@ -188,7 +200,7 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
           onChange={(e) =>
             setFormData({ ...formData, category: e.target.value })
           }
-          className="input-field"
+          className="input-field text-center mt-2"
           required
           disabled={isSubmitting}
         >
@@ -208,27 +220,29 @@ export function ExpenseForm({ onExpenseAdded }: ExpenseFormProps) {
         </select>
       </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className={`btn-primary w-full flex items-center justify-center space-x-3 ${
-          isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-        }`}
-      >
-        {isSubmitting ? (
-          <>
-            <div className="loading-spinner w-5 h-5"></div>
-            <span>Adding Expense...</span>
-          </>
-        ) : (
-          <>
-            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-              <span className="text-white text-lg font-bold">+</span>
-            </div>
-            <span>Add Expense</span>
-          </>
-        )}
-      </button>
+      <div className="text-center mt-8">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`btn-primary w-full flex items-center justify-center space-x-3 text-lg font-semibold py-4 ${
+            isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+        >
+          {isSubmitting ? (
+            <>
+              <div className="loading-spinner w-5 h-5"></div>
+              <span className="text-lg">Adding Expense...</span>
+            </>
+          ) : (
+            <>
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                <span className="text-white text-lg font-bold">+</span>
+              </div>
+              <span className="text-lg">Add Expense</span>
+            </>
+          )}
+        </button>
+      </div>
     </form>
   );
 }
