@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-blue: #2563eb;
+  --primary-brown: #8B4513;
+  --secondary-blue: #3b82f6;
+  --secondary-brown: #A0522D;
+  --light-blue: #93c5fd;
+  --light-brown: #DEB887;
+  --off-white: #f8fafc;
+}
+
+body {
+  background: linear-gradient(to bottom right, var(--off-white), #ffffff);
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .input-field {
+    @apply mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800
+    focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none
+    transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+    transition-colors duration-200 font-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-brown-600 text-white py-2 px-4 rounded-md hover:bg-brown-700
+    focus:outline-none focus:ring-2 focus:ring-brown-500 focus:ring-offset-2
+    transition-colors duration-200 font-medium;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2;
+  }
+
+  .table-header {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider
+    bg-gradient-to-r from-blue-50 to-brown-50;
+  }
+
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-700;
+  }
+}
