@@ -1,21 +1,7 @@
-import { Expense } from '@/components/ExpenseForm';
+import { Expense, ExpenseTrackerData, AppSettings } from '@/types';
 
 const STORAGE_KEY = 'expense-tracker-data';
 const SETTINGS_KEY = 'expense-tracker-settings';
-
-export interface ExpenseTrackerData {
-  expenses: Expense[];
-  lastUpdated: string;
-  version: string;
-}
-
-export interface AppSettings {
-  defaultCategory: string;
-  autoSave: boolean;
-  csvExportPath: string;
-  theme: 'light' | 'dark';
-  currency: string;
-}
 
 const defaultSettings: AppSettings = {
   defaultCategory: '',
@@ -23,6 +9,8 @@ const defaultSettings: AppSettings = {
   csvExportPath: '',
   theme: 'light',
   currency: '₹',
+  dateFormat: 'dd/MM/yyyy',
+  exportFormat: 'csv',
 };
 
 /**

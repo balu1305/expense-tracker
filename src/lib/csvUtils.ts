@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { Expense } from '@/components/ExpenseForm';
+import { Expense } from '@/types';
 
 export interface ExpenseCSVRow {
   Date: string;

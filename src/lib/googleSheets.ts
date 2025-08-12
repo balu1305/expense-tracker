@@ -1,4 +1,4 @@
-import { Expense } from '@/components/ExpenseForm';
+import { Expense } from '@/types';
 
 // Google Sheets API configuration
 // You'll need to set these in your environment variables or config

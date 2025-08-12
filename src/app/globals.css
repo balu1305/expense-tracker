@@ -323,3 +323,8 @@ body {
     border: 1px solid #ccc !important;
   }
 }
+
+/* Stats Card Component */
+.stats-card {
+  @apply p-6 rounded-xl border-2 shadow-sm hover:shadow-md transition-all duration-200 backdrop-blur-sm;
+}
